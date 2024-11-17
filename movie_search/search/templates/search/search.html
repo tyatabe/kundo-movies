@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Search</title>
+</head>
+<body>
+    <h1>Movie Search</h1>
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+    <h2>Results</h2>
+    <p>Total Results: {{ total_results }}</p>
+    <ul>
+        {% for result in results %}
+            <li>
+                <h3>{{ result.Title }} ({{ result.Year }})</h3>
+                <img src="{{ result.Poster }}" alt="{{ result.Title }} poster" style="width:100px;">
+                <p><strong>Type:</strong> {{ result.Type }}</p>
+                <p><strong>Plot:</strong> {{ result.Plot }}</p>
+                <p><strong>Ratings:</strong></p>
+                <ul>
+                    {% for rating in result.Ratings %}
+                        <li>{{ rating.Source }}: {{ rating.Value }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page > 1 %}
+                <a href="?query={{ query }}&page=1">&laquo; first</a>
+                <a href="?query={{ query }}&page={{ page|add:"-1" }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page }} of {{ total_pages }}.
+            </span>
+
+            {% if page < total_pages %}
+                <a href="?query={{ query }}&page={{ page|add:"1" }}">next</a>
+                <a href="?query={{ query }}&page={{ total_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</body>
+</html>
