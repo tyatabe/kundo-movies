@@ -7,6 +7,7 @@ Solution to coding challenge from Kundo
 cp api/settings.toml api/.secrets.toml
 ```
 and fill in the secret values.
+
 2. Run the following command to build and run the application.
 ``` shell
 docker-compose up --build
