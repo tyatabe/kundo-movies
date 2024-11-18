@@ -13,4 +13,6 @@ search_api = create_app()
 
 
 if __name__ == "__main__":
-    uvicorn.run(search_api, host="localhost", port=4000)
+    uvicorn.run(
+        search_api, host="0.0.0.0", port=4000
+    )  # TODO: change host to "localhost" when running w/o Docker

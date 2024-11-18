@@ -11,7 +11,7 @@ def search_movies(request):
 
     if query:  # Only make the API call if there's a query
         response = requests.get(
-            "http://localhost:4000/v1/search",
+            "http://search_api:4000/v1/search",  # TODO: make it work without hardcoding it. Settings would be nice
             json={"query": query, "page": page},
             headers={
                 "api-key": "e4d6d01e-c849-4f54-9a68-7e8fd44cf3ce"  # TODO: make it work with config.settings.API_KEY
