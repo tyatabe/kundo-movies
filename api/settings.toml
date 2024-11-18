@@ -7,3 +7,4 @@ API_KEY = "dummy_api_key"
 ##### END SECRET VALUES #####
 
 OMDB_URL = "http://www.omdbapi.com/"
+API_URL = "http://search_api:4000/v1/"  # w/o docker use http://localhost:4000/v1/

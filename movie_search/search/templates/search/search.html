@@ -2,6 +2,38 @@
 <html>
 <head>
     <title>Movie Search</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #1f1f1f;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #333333;
+        }
+        .pagination a {
+            color: #ffffff;
+        }
+        .pagination a:hover {
+            color: #cccccc;
+        }
+        img {
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
     <h1>Movie Search</h1>
@@ -15,7 +47,7 @@
         {% for result in results %}
             <li>
                 <h3>{{ result.Title }} ({{ result.Year }})</h3>
-                <img src="{{ result.Poster }}" alt="{{ result.Title }} poster" style="width:100px;">
+                <img src="{{ result.Poster }}" alt="{{ result.Title }} poster">
                 <p><strong>Type:</strong> {{ result.Type }}</p>
                 <p><strong>Plot:</strong> {{ result.Plot }}</p>
                 <p><strong>Ratings:</strong></p>

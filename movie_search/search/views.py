@@ -1,6 +1,12 @@
 from django.shortcuts import render
 import requests
 from .forms import SearchForm
+from api.config import settings
+
+print("hello")
+print(settings)
+print(settings.API_KEY)
+print(settings.API_URL)
 
 
 def search_movies(request):
@@ -11,11 +17,9 @@ def search_movies(request):
 
     if query:  # Only make the API call if there's a query
         response = requests.get(
-            "http://search_api:4000/v1/search",  # TODO: make it work without hardcoding it. Settings would be nice
+            f"{settings.API_URL}search",
             json={"query": query, "page": page},
-            headers={
-                "api-key": "e4d6d01e-c849-4f54-9a68-7e8fd44cf3ce"  # TODO: make it work with config.settings.API_KEY
-            },
+            headers={"api-key": settings.API_KEY},
         )
         if response.status_code == 200:
             data = response.json()

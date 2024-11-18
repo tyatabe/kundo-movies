@@ -9,6 +9,8 @@ services:
       - search_api
     volumes:
       - ./movie_search:/app
+      - ./api/.secrets.toml:/app/api/.secrets.toml
+      - ./api/settings.toml:/app/api/settings.toml
     environment:
       DJANGO_SETTINGS_MODULE: movie_search.settings
 

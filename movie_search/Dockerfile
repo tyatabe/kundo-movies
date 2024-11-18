@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install -y \
 COPY api/requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy the api secrets into the container
+COPY api/.secrets.toml /app/api/.secrets.toml
+COPY api/settings.toml /app/api/settings.toml
 # Copy the Django app code into the container
 COPY movie_search /app/
 
